@@ -2,7 +2,7 @@
 releases:
   - name: yolvo
     chart: ./yolvo
-    installed: false
+    installed: true
     values:
       - ./yolvo/values.yaml
 
