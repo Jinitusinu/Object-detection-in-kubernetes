@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yolov5-detector
+  name: {{ .Values.yolvo.name }}
 spec:
   replicas: 1
   selector:
@@ -13,8 +13,8 @@ spec:
         app: yolov5
     spec:
       containers:
-        - name: yolov5-container
-          image: saravana227/yolov5-detector
+        - name: {{ .Values.yolvo.name }}
+          image: {{ .Values.yolvo.image }}
           command: ["python", "watch_and_detect.py"]
           volumeMounts:
             - mountPath: /app/input

@@ -4,8 +4,8 @@ metadata:
   name: yolov5-pv
 spec:
   capacity:
-    storage: 1Gi
+    storage: {{ .Values.yolvo.storage }}
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /mnt/yolov5-data  
+    path: /mnt/yolov5-data

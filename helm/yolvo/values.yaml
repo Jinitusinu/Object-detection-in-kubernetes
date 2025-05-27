@@ -128,4 +128,3 @@ yolvo:
   image: saravana227/yolov5-detector
   port: 80
   storage: 1Gi
-  hostPath: /mnt/data/mysql

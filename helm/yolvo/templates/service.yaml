@@ -7,5 +7,5 @@ spec:
     app: yolov5
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080  # Only use if your container serves HTTP logs/metrics
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.target }}

@@ -1,0 +1,8 @@
+---
+releases:
+  - name: yolvo
+    chart: ./yolvo
+    installed: false
+    values:
+      - ./yolvo/values.yaml
+
