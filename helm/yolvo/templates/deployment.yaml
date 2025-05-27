@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolov5-detector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yolov5
+  template:
+    metadata:
+      labels:
+        app: yolov5
+    spec:
+      containers:
+        - name: yolov5-container
+          image: saravana227/yolov5-detector
+          command: ["python", "watch_and_detect.py"]
+          volumeMounts:
+            - mountPath: /app/input
+              name: yolov5-volume
+              subPath: input
+            - mountPath: /app/output
+              name: yolov5-volume
+              subPath: output
+      volumes:
+        - name: yolov5-volume
+          persistentVolumeClaim:
+            claimName: yolov5-pvc
