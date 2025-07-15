@@ -6,3 +6,8 @@ releases:
     values:
       - ./yolvo/values.yaml
 
+  - name: zabbix
+    chart: zabbix-community/zabbix
+    installed: true
+    values:
+      - ./yolvo/zabbix-values.yaml
