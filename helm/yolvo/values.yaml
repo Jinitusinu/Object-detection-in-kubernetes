@@ -128,3 +128,6 @@ yolvo:
   image: saravana227/yolov5-detector
   port: 80
   storage: 1Gi
+
+zabbix:
+  server: "zabbix-zabbix-server.default.svc.cluster.local"
