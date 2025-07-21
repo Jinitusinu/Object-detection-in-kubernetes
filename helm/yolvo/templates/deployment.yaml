@@ -23,7 +23,23 @@ spec:
             - mountPath: /app/output
               name: yolov5-volume
               subPath: output
+
+        - name: zabbix-agent
+          image: zabbix/zabbix-agent:alpine-latest
+          env:
+            - name: ZBX_SERVER_HOST
+              value: "{{ .Values.zabbix.server }}"   # this will come from values.yaml
+          ports:
+            - containerPort: 10050
+          volumeMounts:
+            - mountPath: /var/run
+              name: run-volume
+
+
       volumes:
         - name: yolov5-volume
           persistentVolumeClaim:
             claimName: yolov5-pvc
+
+        - name: run-volume
+          emptyDir: {}
