@@ -1,7 +1,7 @@
 import time
 import os
 import subprocess
-import shutil  # <-- ADD THIS
+import shutil  
 
 input_dir = "/app/input"
 processed_dir = "/app/processed"
@@ -19,7 +19,7 @@ def get_unprocessed_images():
 while True:
     images = get_unprocessed_images()
     if images:
-        print(f"✅ Detected {len(images)} new image(s). Running detection...")
+        print(f"Detected {len(images)} new image(s). Running detection...")
         for img in images:
             img_path = os.path.join(input_dir, img)
             subprocess.run([
@@ -30,8 +30,8 @@ while True:
                 "--name", "results",
                 "--exist-ok"
             ])
-            shutil.move(img_path, os.path.join(processed_dir, img))  # <-- FIXED LINE
-        print("✅ Processing complete.")
+            shutil.move(img_path, os.path.join(processed_dir, img))  
+        print("Processing complete.")
     else:
         print("⏳ No new images. Sleeping 10 seconds...")
         time.sleep(10)
